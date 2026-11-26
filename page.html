@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Хирургическая стоматология в DENT MASTER Family Clinic. Консультация стоматолога-хирурга и планирование лечения.">
+  <title>Хирургическая стоматология — DENT MASTER Family Clinic</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="pin" viewBox="0 0 24 24">
+      <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/>
+    </symbol>
+    <symbol id="phone" viewBox="0 0 24 24">
+      <path d="M8 3H5.5A2.5 2.5 0 0 0 3 5.7 17 17 0 0 0 18.3 21a2.5 2.5 0 0 0 2.7-2.5V16l-4.6-2-1.7 2a12 12 0 0 1-6.7-6.7l2-1.7L8 3Z"/>
+    </symbol>
+    <symbol id="telegram" viewBox="0 0 24 24">
+      <path d="m3 10 17-7-5 17-4-7-8-3Z"/><path d="m11 13 9-10"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html#top"><img src="img/logo.webp" width="661" height="131" alt="DENT MASTER Family Clinic"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Меню</button>
+      <nav class="site-nav" id="site-nav" aria-label="Главное меню">
+        <a href="index.html#clinic">О клинике</a>
+        <a href="index.html#services">Услуги</a>
+        <a href="index.html#doctors">Врачи</a>
+        <a href="index.html#prices">Цены</a>
+        <a href="index.html#reviews">Отзывы</a>
+        <a href="index.html#location">Контакты</a>
+      </nav>
+      <div class="header-contacts">
+        <a href="index.html#location"><svg class="icon" aria-hidden="true"><use href="#pin"></use></svg>Москва, ул. Примерная, 1</a>
+        <a href="index.html#location"><svg class="icon" aria-hidden="true"><use href="#phone"></use></svg>+7 (495) 123-45-67</a>
+      </div>
+      <a class="button button-small header-book" href="#appointment" data-book>Записаться</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="service-hero" aria-labelledby="service-title">
+      <div class="wrap">
+        <nav class="service-breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li aria-current="page">Хирургическая стоматология</li>
+          </ol>
+        </nav>
+        <div class="service-hero-inner">
+          <div class="service-hero-copy">
+            <h1 id="service-title">Хирургическая стоматология</h1>
+            <p>На консультации стоматолог-хирург проведёт осмотр, объяснит варианты лечения и обсудит с вами план дальнейших действий.</p>
+            <a class="button button-arrow" href="#appointment" data-book="Хирургическая стоматология">Записаться на консультацию <span aria-hidden="true">→</span></a>
+          </div>
+          <img class="service-hero-photo" src="img/technology-microscope.webp" width="960" height="540" alt="Стоматологический кабинет с креслом и микроскопом" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap service-treatment" aria-labelledby="treatment-title">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-line">Направления лечения</p>
+        <h2 id="treatment-title">С чем можно обратиться</h2>
+      </div>
+      <div class="service-treatment-grid">
+        <article>
+          <h3>Консультация хирурга</h3>
+          <p>Первичный осмотр, обсуждение жалоб и разбор имеющихся снимков.</p>
+        </article>
+        <article>
+          <h3>Удаление зубов</h3>
+          <p>В том числе удаление зубов мудрости, когда врач определит показания.</p>
+        </article>
+        <article>
+          <h3>Подготовка к имплантации</h3>
+          <p>Оценка состояния тканей и планирование хирургического этапа.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section service-visit" aria-labelledby="visit-title">
+      <div class="wrap service-visit-inner">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-line">Первый приём</p>
+          <h2 id="visit-title">Как проходит консультация</h2>
+        </div>
+        <ol class="service-visit-steps">
+          <li><strong>Беседа и осмотр.</strong> Врач уточнит жалобы и посмотрит снимки, если они у вас есть.</li>
+          <li><strong>Обсуждение обследования.</strong> При необходимости врач объяснит, какие ещё данные нужны для планирования.</li>
+          <li><strong>План лечения.</strong> Вы обсудите возможные варианты, последовательность этапов и стоимость.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="appointment" id="appointment" aria-labelledby="appointment-title">
+      <div class="wrap appointment-inner">
+        <h2 id="appointment-title">Запишитесь на<br> приём прямо сейчас</h2>
+        <p>Оставьте заявку, и мы подберём удобное время для визита в клинику</p>
+        <a class="button button-arrow" href="#contacts" data-book>Записаться на приём <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="wrap">
+      <div class="footer-inner">
+        <a class="brand" href="index.html#top"><img src="img/logo.webp" width="661" height="131" alt="DENT MASTER Family Clinic" loading="lazy"></a>
+        <nav class="footer-nav" id="footer-navigation" aria-label="Навигация в подвале">
+          <a href="index.html#clinic">О клинике</a>
+          <a href="index.html#services">Услуги</a>
+          <a href="index.html#doctors">Врачи</a>
+          <a href="index.html#prices">Цены</a>
+          <a href="index.html#reviews">Отзывы</a>
+          <a href="index.html#location">Контакты</a>
+        </nav>
+        <div class="footer-contacts">
+          <p class="footer-phone">+7 (495) 123-45-67</p>
+          <span class="footer-social" role="img" aria-label="Telegram"><svg class="icon" aria-hidden="true"><use href="#telegram"></use></svg></span>
+          <span class="footer-social" role="img" aria-label="ВКонтакте">VK</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-details">
+          <p>© 2026 DENT MASTER FAMILY CLINIC. Все права защищены.</p>
+          <p>Москва, ул. Примерная, 1</p>
+          <p>Пн–Вс 09:00–21:00</p>
+        </div>
+        <div class="footer-utilities">
+          <span>Политика конфиденциальности</span>
+          <a href="#footer-navigation">Карта сайта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title">
+    <div class="dialog-header">
+      <h2 id="booking-title">Запись на приём</h2>
+      <form method="dialog"><button class="dialog-close" type="submit" aria-label="Закрыть">×</button></form>
+    </div>
+    <p class="booking-service" hidden></p>
+    <p>Демонстрационная форма. Введите тестовые данные.</p>
+    <form class="booking-form">
+      <label>Имя<input name="name" type="text" autocomplete="given-name" maxlength="80" required></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 (495) 123-45-67" required></label>
+      <button class="button" type="submit">Проверить форму</button>
+    </form>
+    <p class="booking-status" role="status"></p>
+  </dialog>
+</body>
+</html>

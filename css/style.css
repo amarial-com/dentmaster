@@ -120,7 +120,7 @@ h3 { font-size: 1.3rem; line-height: 1.25; }
 .hero .eyebrow { font-size: .75rem; font-weight: 650; letter-spacing: .2em; }
 .hero h1 {
   margin-top: 1.25rem;
-  color: #211e1c;
+  color: #3e2f26;
   font-size: clamp(2.05rem, 4.85vw, 75px);
   line-height: 1.04;
   letter-spacing: -.045em;
@@ -292,6 +292,27 @@ h3 { font-size: 1.3rem; line-height: 1.25; }
 .location-copy .button { margin-top: 1.25rem; }
 .location-map { display: block; width: 100%; height: clamp(19rem, 34vw, 30rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream); }
 
+.service-hero { background: var(--cream); }
+.service-breadcrumbs { padding-top: clamp(1rem, 2.5vw, 2rem); color: var(--muted); font-size: .875rem; }
+.service-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: .3rem .65rem; margin: 0; padding: 0; list-style: none; }
+.service-breadcrumbs li + li::before { margin-inline-end: .65rem; color: var(--gold); content: "/"; }
+.service-breadcrumbs a:hover { text-underline-offset: .18em; text-decoration: underline; }
+.service-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(1.75rem, 4vw, 4.5rem); padding-block: clamp(2rem, 4.75vw, 4.5rem) clamp(2.75rem, 5.5vw, 5rem); }
+.service-hero-copy h1 { color: #3e2f26; font-size: clamp(2rem, 5vw, 4.35rem); line-height: 1.08; letter-spacing: -.045em; }
+.service-hero-copy p { max-width: 43ch; margin-top: 1.15rem; color: var(--muted); }
+.service-hero-copy .button { margin-top: 1.5rem; }
+.service-hero-photo { width: 100%; aspect-ratio: 1.5; object-fit: cover; border-radius: var(--radius); }
+.service-treatment { padding-bottom: clamp(2.75rem, 5vw, 5rem); }
+.service-treatment-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.75rem); margin-top: 1.75rem; }
+.service-treatment-grid article { padding: clamp(1rem, 2.2vw, 1.75rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.service-treatment-grid p { margin-top: .7rem; color: var(--muted); }
+.service-visit { padding-top: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--line); }
+.service-visit-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(1.5rem, 5vw, 5rem); }
+.service-visit-steps { margin: 0; padding-left: 1.4rem; }
+.service-visit-steps li { padding: .7rem 0 .7rem .35rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.service-visit-steps li:first-child { padding-top: 0; }
+.service-visit-steps li::marker { color: var(--gold-dark); font-weight: 750; }
+
 .appointment { --appointment-bg: #f2efe8; position: relative; isolation: isolate; background-color: var(--appointment-bg); }
 .appointment::before {
   position: absolute;
@@ -361,6 +382,8 @@ h3 { font-size: 1.3rem; line-height: 1.25; }
 @media (max-width: 48rem) {
   .technologies { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "slider"; }
   .reviews-inner, .location-inner { grid-template-columns: 1fr; }
+  .service-hero-inner, .service-visit-inner { grid-template-columns: 1fr; }
+  .service-hero-photo { aspect-ratio: 16 / 9; }
 }
 
 @media (max-width: 40rem) {
@@ -386,6 +409,7 @@ h3 { font-size: 1.3rem; line-height: 1.25; }
   .icon { width: 2rem; height: 2rem; }
   .about { grid-template-columns: 1fr; }
   .about-copy { grid-row: 1; }
+  .service-treatment-grid { grid-template-columns: 1fr; }
   .doctor-grid { --doctor-visible: 2; }
   .doctor-slider.is-ready { gap: .65rem; }
   .technology-slider { grid-template-columns: minmax(0, 1fr); }
