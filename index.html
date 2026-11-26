@@ -56,11 +56,11 @@
         <a href="#doctors">Врачи</a>
         <a href="#prices">Цены</a>
         <a href="#reviews">Отзывы</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#location">Контакты</a>
       </nav>
       <div class="header-contacts">
-        <a href="#contacts"><svg class="icon" aria-hidden="true"><use href="#pin"></use></svg>Москва, ул. Примерная, 1</a>
-        <a href="#contacts"><svg class="icon" aria-hidden="true"><use href="#phone"></use></svg>+7 (495) 123-45-67</a>
+        <a href="#location"><svg class="icon" aria-hidden="true"><use href="#pin"></use></svg>Москва, ул. Примерная, 1</a>
+        <a href="#location"><svg class="icon" aria-hidden="true"><use href="#phone"></use></svg>+7 (495) 123-45-67</a>
       </div>
       <a class="button button-small header-book" href="#appointment" data-book>Записаться</a>
     </div>
@@ -94,7 +94,7 @@
     <section class="section wrap about" id="clinic">
       <img src="img/clinic.webp" width="393" height="235" alt="Светлая приёмная клиники с мраморной стойкой и белыми цветами" loading="lazy">
       <div class="about-copy">
-        <p class="eyebrow">О клинике</p>
+        <p class="eyebrow eyebrow-line">О клинике</p>
         <h2><span lang="en">DENT MASTER FAMILY CLINIC</span> — стоматология нового уровня</h2>
         <p class="about-description">Мы создаём комфортную атмосферу, используем передовые технологии и предлагаем индивидуальный подход к каждому пациенту.</p>
         <dl class="about-stats">
@@ -190,6 +190,50 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
+    <section class="section wrap technologies" id="technologies" aria-labelledby="technologies-title">
+      <div class="section-heading technology-copy">
+        <p class="eyebrow eyebrow-line">Технологии</p>
+        <h2 id="technologies-title">Возможности<br> <span lang="en">DENT MASTER<br> FAMILY CLINIC</span></h2>
+        <p>Цифровые снимки и сканы зубов.<br> Понятное планирование лечения.</p>
+        <details class="technology-details">
+          <summary class="button button-arrow">Узнать больше <span aria-hidden="true">→</span></summary>
+          <p>На консультации врач объяснит, какое обследование нужно в вашем случае, покажет результаты и обсудит варианты лечения. Изображения в слайдере иллюстрируют типы оборудования.</p>
+        </details>
+      </div>
+      <div class="technology-slider" role="group" aria-label="Примеры оборудования">
+        <div class="technology-slides" id="technology-slides">
+          <article class="technology-slide">
+            <img src="img/technology-scanner.webp" width="960" height="540" alt="Ручной сканер рядом с экраном с трёхмерной моделью зубов" loading="lazy">
+            <div class="technology-caption">
+              <h3>Интраоральный сканер</h3>
+              <p>Создаёт цифровую модель зубов для планирования лечения и изготовления реставраций.</p>
+            </div>
+          </article>
+          <article class="technology-slide">
+            <img src="img/technology-microscope.webp" width="960" height="540" alt="Стоматологический микроскоп на кронштейне над креслом" loading="lazy">
+            <div class="technology-caption">
+              <h3>Стоматологический микроскоп</h3>
+              <p>Увеличивает рабочую область, чтобы врач мог рассмотреть мелкие детали зуба и корневых каналов.</p>
+            </div>
+          </article>
+          <article class="technology-slide">
+            <img src="img/technology-imaging.webp" width="960" height="540" alt="Дентальный томограф с круглой сканирующей рамой" loading="lazy">
+            <div class="technology-caption">
+              <h3>Дентальный 3D-томограф</h3>
+              <p>Даёт объёмное изображение зубов и челюстей, которое врач использует при планировании лечения.</p>
+            </div>
+          </article>
+        </div>
+        <div class="technology-arrows" hidden>
+          <button class="button carousel-arrow" type="button" aria-label="Предыдущее оборудование" aria-controls="technology-slides" data-slide-step="-1"><span aria-hidden="true">←</span></button>
+          <button class="button carousel-arrow" type="button" aria-label="Следующее оборудование" aria-controls="technology-slides" data-slide-step="1"><span aria-hidden="true">→</span></button>
+        </div>
+        <p class="visually-hidden technology-status" role="status"></p>
+      </div>
+    </section>
+
     <section class="section prices" id="prices">
       <div class="wrap prices-inner">
         <div class="section-heading">
@@ -218,52 +262,110 @@
         <li><svg class="icon" aria-hidden="true"><use href="#dental-chair"></use></svg>Современное оборудование</li>
         <li><svg class="icon" aria-hidden="true"><use href="#clock"></use></svg>Удобное расположение</li>
       </ul>
-      <img class="why-us-image" src="img/why-us-smile.webp" width="304" height="234" alt="" loading="lazy">
+      <img class="why-us-image" src="img/why-us-smile-retouched.webp" width="304" height="234" alt="" loading="lazy">
     </section>
 
-    <hr class="section-divider">
-
-    <section class="section wrap reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="section-heading">
-        <p class="eyebrow eyebrow-line">Отзывы</p>
-        <h2 id="reviews-title">Что говорят наши пациенты</h2>
-        <p class="reviews-note">Примеры отзывов для макета</p>
-      </div>
-      <div class="reviews-slider">
-        <div class="review-list" id="review-list">
-          <article class="review">
-            <div class="review-portrait"><img src="img/review-1.webp" width="174" height="152" alt="" loading="lazy"></div>
-            <div class="review-copy">
-              <span class="quote-mark" aria-hidden="true">“</span>
-              <blockquote><p>Доверяю Dent Master уже много лет. Всегда внимательный персонал, современное оборудование и отличный результат!</p></blockquote>
-              <p class="review-author">Анна К. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
-            </div>
-          </article>
-          <article class="review">
-            <div class="review-portrait"><img src="img/review-2.webp" width="520" height="448" alt="" loading="lazy"></div>
-            <div class="review-copy">
-              <span class="quote-mark" aria-hidden="true">“</span>
-              <blockquote><p>На консультации врач подробно объяснил план лечения и ответил на все мои вопросы.</p></blockquote>
-              <p class="review-author">Алексей М. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
-            </div>
-          </article>
-          <article class="review">
-            <div class="review-portrait"><img src="img/review-3.webp" width="520" height="448" alt="" loading="lazy"></div>
-            <div class="review-copy">
-              <span class="quote-mark" aria-hidden="true">“</span>
-              <blockquote><p>Пришла на профессиональную гигиену. Врач рассказывала, что делает, и объяснила, как лучше ухаживать за зубами дома.</p></blockquote>
-              <p class="review-author">Елена С. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
-            </div>
-          </article>
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap reviews-inner">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-line">Отзывы</p>
+          <h2 id="reviews-title">Что говорят наши пациенты</h2>
+          <p class="reviews-note">Примеры отзывов для макета</p>
         </div>
-        <div class="review-tools" hidden>
-          <button class="reviews-all" type="button" aria-expanded="false" aria-controls="review-list">Все отзывы <span aria-hidden="true">→</span></button>
-          <div class="review-arrows">
-            <button class="button carousel-arrow" type="button" aria-label="Предыдущий отзыв" aria-controls="review-list" data-review-step="-1"><span aria-hidden="true">←</span></button>
-            <button class="button carousel-arrow" type="button" aria-label="Следующий отзыв" aria-controls="review-list" data-review-step="1"><span aria-hidden="true">→</span></button>
+        <div class="reviews-slider">
+          <div class="review-list" id="review-list">
+            <article class="review">
+              <div class="review-portrait"><img src="img/review-1.webp" width="174" height="152" alt="" loading="lazy"></div>
+              <div class="review-copy">
+                <span class="quote-mark" aria-hidden="true">“</span>
+                <blockquote><p>Доверяю Dent Master уже много лет. Всегда внимательный персонал, современное оборудование и отличный результат!</p></blockquote>
+                <p class="review-author">Анна К. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
+              </div>
+            </article>
+            <article class="review">
+              <div class="review-portrait"><img src="img/review-2.webp" width="520" height="448" alt="" loading="lazy"></div>
+              <div class="review-copy">
+                <span class="quote-mark" aria-hidden="true">“</span>
+                <blockquote><p>На консультации врач подробно объяснил план лечения и ответил на все мои вопросы.</p></blockquote>
+                <p class="review-author">Алексей М. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
+              </div>
+            </article>
+            <article class="review">
+              <div class="review-portrait"><img src="img/review-3.webp" width="520" height="448" alt="" loading="lazy"></div>
+              <div class="review-copy">
+                <span class="quote-mark" aria-hidden="true">“</span>
+                <blockquote><p>Пришла на профессиональную гигиену. Врач рассказывала, что делает, и объяснила, как лучше ухаживать за зубами дома.</p></blockquote>
+                <p class="review-author">Елена С. <span class="review-stars" role="img" aria-label="5 из 5">★★★★★</span></p>
+              </div>
+            </article>
           </div>
+          <div class="review-tools" hidden>
+            <button class="reviews-all" type="button" aria-expanded="false" aria-controls="review-list">Все отзывы <span aria-hidden="true">→</span></button>
+            <div class="review-arrows">
+              <button class="button carousel-arrow" type="button" aria-label="Предыдущий отзыв" aria-controls="review-list" data-slide-step="-1"><span aria-hidden="true">←</span></button>
+              <button class="button carousel-arrow" type="button" aria-label="Следующий отзыв" aria-controls="review-list" data-slide-step="1"><span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <p class="visually-hidden review-status" role="status"></p>
         </div>
-        <p class="visually-hidden review-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="section wrap faq" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow-line">Пациентам</p>
+        <h2 id="faq-title">Частые вопросы</h2>
+      </div>
+      <div class="faq-questions" role="group" aria-label="Частые вопросы" hidden></div>
+      <div class="faq-answers">
+        <section class="faq-panel" id="faq-first-visit" aria-labelledby="faq-first-visit-title">
+          <div class="faq-response">
+            <h3 id="faq-first-visit-title">Как проходит первый приём?</h3>
+            <p>Врач уточнит, что вас беспокоит, проведёт осмотр и объяснит, какие обследования могут понадобиться. Затем вы обсудите варианты лечения и их стоимость.</p>
+          </div>
+        </section>
+        <section class="faq-panel" id="faq-price" aria-labelledby="faq-price-title">
+          <div class="faq-response">
+            <h3 id="faq-price-title">Сколько стоит консультация?</h3>
+            <p>Стоимость первичной консультации указана в разделе <a href="#prices">«Цены»</a>. При записи можно уточнить стоимость приёма у выбранного врача и что в неё входит.</p>
+          </div>
+        </section>
+        <section class="faq-panel" id="faq-records" aria-labelledby="faq-records-title">
+          <div class="faq-response">
+            <h3 id="faq-records-title">Нужно ли брать снимки?</h3>
+            <p>Если у вас есть недавние снимки, результаты обследований или предыдущий план лечения, возьмите их с собой. Врач посмотрит материалы и подскажет, понадобятся ли дополнительные обследования.</p>
+          </div>
+        </section>
+        <section class="faq-panel" id="faq-child" aria-labelledby="faq-child-title">
+          <div class="faq-response">
+            <h3 id="faq-child-title">Можно ли записать ребёнка?</h3>
+            <p>При записи сообщите администратору возраст ребёнка. Он подскажет, какой специалист принимает пациентов этого возраста, и поможет подобрать время.</p>
+          </div>
+        </section>
+        <section class="faq-panel" id="faq-booking" aria-labelledby="faq-booking-title">
+          <div class="faq-response">
+            <h3 id="faq-booking-title">Как записаться на приём?</h3>
+            <p>Откройте форму <a href="#appointment" data-book>«Записаться на приём»</a> и укажите имя и телефон. Если удобнее позвонить, номер клиники указан в шапке и внизу страницы.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section location" id="location" aria-labelledby="location-title">
+      <div class="wrap location-inner">
+        <div class="section-heading location-copy">
+          <p class="eyebrow eyebrow-line">Контакты</p>
+          <h2 id="location-title">Как добраться</h2>
+          <dl class="location-contacts">
+            <div><dt>Адрес</dt><dd>Москва, ул. Примерная, 1</dd></div>
+            <div><dt>Координаты метки</dt><dd>55.7539, 37.6204</dd></div>
+            <div><dt>Телефон</dt><dd>+7 (495) 123-45-67</dd></div>
+            <div><dt>E-mail</dt><dd>info@dentmaster.example</dd></div>
+          </dl>
+          <p class="location-note">Контакты и метка на карте приведены для макета.</p>
+          <a class="button button-arrow" href="https://yandex.ru/maps/?ll=37.6204%2C55.7539&amp;z=15&amp;pt=37.6204%2C55.7539%2Cpm2rdm" target="_blank" rel="noopener">Открыть в Яндекс Картах <span aria-hidden="true">→</span></a>
+        </div>
+        <iframe class="location-map" src="https://www.openstreetmap.org/export/embed.html?bbox=37.6038%2C55.7472%2C37.6370%2C55.7606&amp;layer=mapnik&amp;marker=55.7539%2C37.6204" title="OpenStreetMap — демонстрационная метка в Москве" loading="lazy" allowfullscreen></iframe>
       </div>
     </section>
 
@@ -286,7 +388,7 @@
           <a href="#doctors">Врачи</a>
           <a href="#prices">Цены</a>
           <a href="#reviews">Отзывы</a>
-          <a href="#contacts">Контакты</a>
+          <a href="#location">Контакты</a>
         </nav>
         <div class="footer-contacts">
           <p class="footer-phone">+7 (495) 123-45-67</p>

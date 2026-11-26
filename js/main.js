@@ -146,58 +146,126 @@ doctorArrows.hidden = false;
 renderDoctors();
 new ResizeObserver(() => renderDoctors()).observe(doctorViewport);
 
+function createCarousel(list, arrows, status, label) {
+  const slides = [...list.children];
+  let activeSlide = 0;
+  let animations = [];
+
+  function render(showAll = false) {
+    animations.forEach(animation => animation.cancel());
+    animations = [];
+    list.classList.toggle('is-carousel', !showAll);
+    slides.forEach((slide, index) => {
+      slide.inert = !showAll && index !== activeSlide;
+    });
+    arrows.hidden = showAll;
+  }
+
+  for (const arrow of arrows.querySelectorAll('[data-slide-step]')) {
+    arrow.addEventListener('click', () => {
+      const outgoing = slides[activeSlide];
+      const step = Number(arrow.dataset.slideStep);
+      activeSlide = (activeSlide + step + slides.length) % slides.length;
+      render();
+
+      if (!reducedMotion.matches) {
+        const incoming = slides[activeSlide];
+        const timing = { duration: 360, easing: 'ease' };
+        animations = [
+          outgoing.animate([
+            { transform: 'translateX(0)', visibility: 'visible' },
+            { transform: `translateX(${-step * 100}%)`, visibility: 'visible' },
+          ], timing),
+          incoming.animate([
+            { transform: `translateX(${step * 100}%)` },
+            { transform: 'translateX(0)' },
+          ], timing),
+        ];
+      }
+      status.textContent = `${label} ${activeSlide + 1} из ${slides.length}`;
+    });
+  }
+
+  render();
+  return render;
+}
+
+const technologies = document.querySelector('.technology-slider');
+createCarousel(
+  technologies.querySelector('.technology-slides'),
+  technologies.querySelector('.technology-arrows'),
+  technologies.querySelector('.technology-status'),
+  'Оборудование'
+);
+
 const reviews = document.querySelector('.reviews-slider');
-const reviewList = reviews.querySelector('.review-list');
-const reviewSlides = [...reviews.querySelectorAll('.review')];
 const reviewTools = reviews.querySelector('.review-tools');
 const reviewToggle = reviews.querySelector('.reviews-all');
-const reviewArrows = reviews.querySelector('.review-arrows');
-const reviewStatus = reviews.querySelector('.review-status');
-let activeReview = 0;
-let reviewAnimations = [];
-
-function renderReviews() {
-  const showAll = reviewToggle.getAttribute('aria-expanded') === 'true';
-  reviewList.classList.toggle('is-carousel', !showAll);
-  reviewSlides.forEach((slide, index) => {
-    slide.inert = !showAll && index !== activeReview;
-  });
-  reviewArrows.hidden = showAll;
-}
-
-for (const arrow of reviewArrows.querySelectorAll('[data-review-step]')) {
-  arrow.addEventListener('click', () => {
-    const outgoing = reviewSlides[activeReview];
-    const step = Number(arrow.dataset.reviewStep);
-    activeReview = (activeReview + step + reviewSlides.length) % reviewSlides.length;
-    reviewAnimations.forEach(animation => animation.cancel());
-    renderReviews();
-
-    if (!reducedMotion.matches) {
-      const incoming = reviewSlides[activeReview];
-      const timing = { duration: 360, easing: 'ease' };
-      reviewAnimations = [
-        outgoing.animate([
-          { transform: 'translateX(0)', visibility: 'visible' },
-          { transform: `translateX(${-step * 100}%)`, visibility: 'visible' },
-        ], timing),
-        incoming.animate([
-          { transform: `translateX(${step * 100}%)` },
-          { transform: 'translateX(0)' },
-        ], timing),
-      ];
-    }
-    reviewStatus.textContent = `Отзыв ${activeReview + 1} из ${reviewSlides.length}`;
-  });
-}
+const renderReviews = createCarousel(
+  reviews.querySelector('.review-list'),
+  reviews.querySelector('.review-arrows'),
+  reviews.querySelector('.review-status'),
+  'Отзыв'
+);
 
 reviewToggle.addEventListener('click', () => {
-  reviewAnimations.forEach(animation => animation.cancel());
   const showAll = reviewToggle.getAttribute('aria-expanded') !== 'true';
   reviewToggle.setAttribute('aria-expanded', String(showAll));
   reviewToggle.firstChild.textContent = showAll ? 'Свернуть отзывы ' : 'Все отзывы ';
-  renderReviews();
+  renderReviews(showAll);
 });
 
-renderReviews();
 reviewTools.hidden = false;
+
+const faq = document.querySelector('.faq');
+const faqQuestions = faq.querySelector('.faq-questions');
+const faqPanels = [...faq.querySelectorAll('.faq-panel')];
+let activeQuestion = 0;
+
+const faqButtons = faqPanels.map((panel, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'button faq-button';
+  button.id = `${panel.id}-button`;
+  button.textContent = panel.querySelector('h3').textContent;
+  button.setAttribute('aria-controls', panel.id);
+  panel.setAttribute('aria-labelledby', button.id);
+  button.addEventListener('click', () => {
+    activeQuestion = activeQuestion === index ? -1 : index;
+    renderFaq();
+    revealFaqButton(button);
+  });
+  return button;
+});
+
+function renderFaq() {
+  faqPanels.forEach((panel, index) => {
+    const open = index === activeQuestion;
+    faqButtons[index].setAttribute('aria-expanded', String(open));
+    panel.classList.toggle('is-open', open);
+    panel.inert = !open;
+  });
+}
+
+function revealFaqButton(button) {
+  const rail = faqQuestions.getBoundingClientRect();
+  const bounds = button.getBoundingClientRect();
+  const left = Math.min(0, bounds.left - rail.left) + Math.max(0, bounds.right - rail.right);
+  if (left) faqQuestions.scrollBy({ left, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+}
+
+faqQuestions.append(...faqButtons);
+faqQuestions.addEventListener('keydown', event => {
+  if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+  const index = faqButtons.indexOf(event.target);
+  const step = event.key === 'ArrowRight' ? 1 : -1;
+  event.preventDefault();
+  const button = faqButtons[(index + step + faqButtons.length) % faqButtons.length];
+  button.focus({ preventScroll: true });
+  revealFaqButton(button);
+});
+
+renderFaq();
+faq.classList.add('is-ready');
+faqQuestions.hidden = false;
